@@ -1,0 +1,16 @@
+begin{document}
+
+\maketitle
+
+\section{Overview}
+\textrm{ví dụ bài tập: không gian RGB 3 lớp red, green, blue 1 pixel có cường độ intensity. }
+
+\newline
+\textrm{chuyển mảng nhiều chiều thành mảng 1 chiều. 1-hot-encoding. 1 hàm số là 1 basis function X1,X2,X3... và coordinates là a1,a2,a3,.... 1 hình ảnh có thể được biểu diễn dưới dạng X= a1X1+a2X2+...anXn}
+\textrm{Mỗi không gian hàm số X có thể có nhiều basis functions}
+\textrm{phải chuyển input từ tấm hình sang 1 môi trường comparable với môi trường từ thông tin của tấm hình (Embedding)}
+\textrm{chuẩn đánh giá là co-variance giữa 2 vector Zx, Zy: dương -> 1 cái tăng thì cái kia cũng tăng }
+\textrm{PCA: Chọn X1 sao cho X1~ sấp xỉ X nhất với Xk = X0(mean) + sigma(akXk)}
+
+
+\end{document}
