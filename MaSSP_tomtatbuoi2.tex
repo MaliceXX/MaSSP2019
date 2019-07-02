@@ -70,10 +70,11 @@ Công thức:
 $$\mathbf{w} = \mathbf{A}^{\dagger}\mathbf{b} = (\mathbf{\bar{X}}^T\mathbf{\bar{X}})^{\dagger} \mathbf{\bar{X}}^T\mathbf{y}$$
 
 \section{Logistic regression}
-Logistic regression linh hoạt và dùng được trong nhiều trường hợp. Hàm sigmoid có nhiều tính chất đẹp và thuận lợi để sử dụng như một hàm đánh giá. Ta biểu diễn dữ liệu input và các coordinates dưới dạng xác suât theo cross-entropy.
-công thức sigmoid:
+Logistic regression linh hoạt và dùng được trong nhiều trường hợp. Hàm sigmoid có nhiều tính chất đẹp và thuận lợi để sử dụng như một hàm đánh giá. Ta biểu diễn dữ liệu input và các coordinates dưới dạng xác suât theo cross-entropy. Sau đó, dùng SGD (Stochastic Gradient Descent) để tối ưu hàm số.Phương pháp này hoạt động nhanh với độ chính xác cao bằng việc chọn random một điểm dữ liệu để tính đạo hàm mỗi lần.
+
+Công thức sigmoid:
 $$\sigma = \frac{1}{1+e^{-s}}$$
-công thức cross entropy:
+Công thức cross entropy:
 $$ J = -\sum_{i=1} ^{d} P_y_i logP_y_i $$
 
 \section{Softmax}
