@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[utf8]{vietnam}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{xunicode}
+\usetikzlibrary{calc}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.markings}
+\usepackage{xifthen}
+\usetikzlibrary{shapes.geometric}
+\tikzset{main node/.style={rectangle,fill=white,draw,minimum size=1cm,inner sep=0pt},}
+\tikzset{black node/.style={circle,fill=black,draw,minimum size=0.4cm,inner sep=0pt},}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{accents}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{mathrsfs}
+\usepackage{epstopdf}
+\usepackage{framed,color}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{float}
+\linespread{1.3}
+\restylefloat{table}
+\usepackage[tikz]{bclogo}
+\usepackage{wrapfig}
+\usepackage[intlimits]{mathtools}
+\usepackage{indentfirst}
+\usepackage{mdframed}
+\usepackage{commath}
+\usepackage{soul}
+\usepackage{enumerate}
+\usepackage{mathabx}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{shadecolor}{rgb}{1,0.8,0.3}
+\topmargin -1.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.04cm
+\textwidth 16.59cm
+\textheight 24cm
+\parskip 7.2pt
+
+\title{Buổi học MaSSP số 2}
+\date{July 2019}
+
+\begin{document}
+\maketitle
+\author{Nguyen Dinh Hieu}
+
+\section{Unified Framework}
+
+
+\textrm{Với bộ dữ liệu đầu vào X và bộ dữ liệu đầu ra Y , cần xây dựng một phương thức giúp máy tính có thể nhận vào 1 dữ liệu x bất kì và đưa ra kết quả chính xác như ta mong muốn. 
+Đầu tiên, ta dùng phương pháp PCA để giảm số chiều dữ liệu cần phải làm việc (nhưng vẫn giữ lại độ chính xác cao) và thu được các vector coordinate dựa trên những basis functions/features cho sẵn. Sau đó, bằng các thuật toán khác nhau về regression hoặc classification, ta thu được ma trận hệ số W phù hợp giúp thuật toán của ta đạt độ chính xác cao. }
+
+\section{PCA}
+\textrm{Biểu diễn 1 dữ liệu đầu vào X theo dạng
+$$X = X_1 y_1 + X_2 y_2  + ... + X_n y_n $$
+với {$X_1 , X_2, ...$} là các basis functions cho trước, còn {$y_1, y_2, ...$} là các coordinates tương ứng. Đồng thời, ta có thể giảm số components, giúp giảm độ phức tạp tính toán (do chỉ cần quan tâm đến các chi tiết liên quan tới basis functions)}
+
+\section{Linear regression}
+Thuật toán linear regression (tìm hệ số thực cho hàm số tuyến tính)giúp ta gán các hệ số {$w_0, w_1,...$} cho hàm số cho trước. Với bộ dữ liệu/experience có sẵn, ta dùng linear regression tìm các hế số để chúng cho ra kết quả y-head gần với kết quả chính xác là y.
+Công thức:
+$$\mathbf{w} = \mathbf{A}^{\dagger}\mathbf{b} = (\mathbf{\bar{X}}^T\mathbf{\bar{X}})^{\dagger} \mathbf{\bar{X}}^T\mathbf{y}$$
+
+\section{Logistic regression}
+Logistic regression linh hoạt và dùng được trong nhiều trường hợp. Hàm sigmoid có nhiều tính chất đẹp và thuận lợi để sử dụng như một hàm đánh giá. Ta biểu diễn dữ liệu input và các coordinates dưới dạng xác suât theo cross-entropy.
+công thức sigmoid:
+$$\sigma = \frac{1}{1+e^{-s}}$$
+công thức cross entropy:
+$$ J = -\sum_{i=1} ^{d} P_y_i logP_y_i $$
+
+\section{Softmax}
+ Lây dữ liệu Z nhân với ma trận trọng số W ta được $W_z$. Ta dùng softmax để classify thông qua probability.
+
+Công thức softmax: 
+$$P_i = softmax x_i = \frac{\sigma (y_i)}{\sum_{j=1}^{d}\sigma(y_i)}$$
+\end{document}
