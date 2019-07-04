@@ -70,3 +70,15 @@ w_init = np.array([[2], [1]])
 
 
 print('Solution found by GD: w = ', w1[-1].T, ',\nafter %d iterations.' %(it1+1))
+
+w = w1[-1].T;
+w_0 = w[0][0]
+w_1 = w[0][1]
+x0 = np.linspace(0, 1, 2, endpoint=True) #create space to display result
+y0 = w_0 + w_1*x0
+
+# Draw the fitting line 
+plt.plot(X.T, y.T, 'b.')     # data ? .T
+plt.plot(x0, y0, 'r', linewidth = 2)   # the fitting line
+plt.axis([0, 1, 0, 10])
+plt.show()
